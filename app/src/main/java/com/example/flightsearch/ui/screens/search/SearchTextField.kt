@@ -10,9 +10,11 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import com.example.flightsearch.R
 
 // Composable que muestra un campo de texto para realizar búsquedas
 @OptIn(ExperimentalMaterial3Api::class)
@@ -28,7 +30,7 @@ fun SearchTextField(
     TextField(
         value = query,
         onValueChange = { onQueryChange(it) },
-        placeholder = { Text(text = "Search here") },
+        placeholder = { Text(text = stringResource(R.string.text_search)) },
         singleLine = true,
         maxLines = 1,
         keyboardOptions = KeyboardOptions(
@@ -37,11 +39,11 @@ fun SearchTextField(
         ),
         keyboardActions = KeyboardActions(
             onDone = {
-                focusManager.clearFocus()  // Al presionar "Done", se quita el foco del campo de texto
+                focusManager.clearFocus()
             }
         ),
         modifier = Modifier
-            .padding(top = 16.dp)  // Espaciado superior para separar el campo de texto
-            .fillMaxWidth(),  // Ocupa todo el ancho disponible
+            .padding(top = 16.dp)
+            .fillMaxWidth(),
     )
 }
