@@ -38,12 +38,6 @@ fun FlightScreen() {
             // Función de clic en el ícono de favorito que interactúa con el ViewModel
             onFavoriteClick = { s1: String, s2: String ->
                 viewModel.addFavoriteFlight(s1, s2)
-                // Mostrar un toast para indicar si se ha añadido o eliminado el vuelo favorito
-                if (viewModel.flightAdded) {
-                    Toast.makeText(context, "ADDED", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(context, "DELETED", Toast.LENGTH_SHORT).show()
-                }
             }
         )
     }
